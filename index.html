@@ -70,6 +70,11 @@
             <button class="button" onclick="clearDisplay()">C</button>
             <button class="button operator" onclick="calculateResult()">=</button>
             <button class="button operator" onclick="setOperator('+')">+</button>
+
+            <button class="button operator" onclick="setOperator('G')">G</button>
+            <button class="button operator"></button>
+            <button class="button operator"></button>
+            <button class="button operator"></button>
         </div>
     </div>
 
@@ -88,24 +93,28 @@
             firstOperand = currentInput;
             operator = op;
             currentInput = '';
+            if (op === 'G') {
+                calculateResult();
+            }
         }
 
         function calculateResult() {
-            if (currentInput === '' || firstOperand === '' || operator === '') return;
-            const secondOperand = currentInput;
             let result;
             switch (operator) {
                 case '+':
-                    result = parseFloat(firstOperand) + parseFloat(secondOperand);
+                    result = parseFloat(firstOperand) + parseFloat(currentInput);
                     break;
                 case '-':
-                    result = parseFloat(firstOperand) - parseFloat(secondOperand);
+                    result = parseFloat(firstOperand) - parseFloat(currentInput);
                     break;
                 case '*':
-                    result = parseFloat(firstOperand) * parseFloat(secondOperand);
+                    result = parseFloat(firstOperand) * parseFloat(currentInput);
                     break;
                 case '/':
-                    result = parseFloat(firstOperand) / parseFloat(secondOperand);
+                    result = parseFloat(firstOperand) / parseFloat(currentInput);
+                    break;
+                case 'G':
+                    result = (parseFloat(firstOperand) * 9/5) + 32;
                     break;
             }
             currentInput = result;
