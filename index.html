@@ -73,8 +73,8 @@
 
             <button class="button operator" onclick="setOperator('T')">T</button>
             <button class="button operator" onclick="setOperator('P')">P</button>
-            <button class="button operator" ></button>
-            <button class="button operator" ></button>
+            <button class="button operator" onclick="setOperator('PR')">PR</button>
+            <button class="button operator"></button>
         </div>
     </div>
 
@@ -93,7 +93,7 @@
             firstOperand = currentInput;
             operator = op;
             currentInput = '';
-            if (['T', 'P'].includes(op)) {
+            if (['T', 'P', 'PR'].includes(op)) {
                 calculateResult();
             }
         }
@@ -118,6 +118,9 @@
                     break;
                 case 'P': 
                     result = parseFloat(firstOperand) / 1000;
+                    break;
+                case 'PR': 
+                    result = parseFloat(firstOperand) * 14.5038;
                     break;
             }
             currentInput = result;
