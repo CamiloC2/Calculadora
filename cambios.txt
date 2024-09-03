@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 Estos son los cambios en main
 
 Es una nueva version
+=======
+Hola estos son los cambios de Titulo
+>>>>>>> titulo
